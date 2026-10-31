@@ -1,11 +1,83 @@
 @import "tailwindcss";
 
+/* FaceVeda theme. The components were written for a dark slate UI; remapping the Tailwind palette here
+   turns them into the FaceVeda light design (navy #325385, blue #4674b9, orange #ed7639, Segoe UI) without touching every class. */
 @theme {
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Roboto, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* surfaces and text: dark slate scale inverted to FaceVeda neutrals */
+  --color-slate-950: #fafafa;
+  --color-slate-900: #ffffff;
+  --color-slate-800: #e6e9ee;
+  --color-slate-700: #cfd5de;
+  --color-slate-600: #9aa3b0;
+  --color-slate-500: #6b6b6b;
+  --color-slate-400: #5d6573;
+  --color-slate-300: #3a3a3a;
+  --color-slate-200: #2a2a2a;
+  --color-slate-100: #1c1c1c;
+  --color-slate-50: #1c1c1c;
+
+  /* brand blues */
+  --color-blue-950: #eaf0f8;
+  --color-blue-900: #d7e3f4;
+  --color-blue-800: #b9cbe6;
+  --color-blue-600: #325385;
+  --color-blue-500: #4674b9;
+  --color-blue-400: #2f5e9e;
+  --color-blue-300: #2f5e9e;
+
+  /* text tints that were light-on-dark become dark-on-light */
+  --color-emerald-400: #1f6b24;
+  --color-emerald-300: #1f6b24;
+  --color-emerald-200: #1f6b24;
+  --color-teal-400: #0f6b66;
+  --color-teal-300: #0f6b66;
+  --color-amber-400: #9c5b00;
+  --color-amber-300: #8a5a00;
+  --color-yellow-300: #7a5d00;
+  --color-rose-400: #a82e22;
+  --color-rose-300: #a82e22;
+  --color-rose-200: #a82e22;
+  --color-red-400: #a82e22;
+  --color-red-300: #a82e22;
+  --color-red-200: #a82e22;
+  --color-purple-400: #6b3fa0;
+  --color-purple-300: #6b3fa0;
+  --color-indigo-300: #3f4ea0;
+  --color-orange-500: #ed7639;
 }
 
-body {
-  @apply bg-neutral-50 text-neutral-900;
-  margin: 0;
-  font-family: var(--font-sans);
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #fafafa;
+    color: #1c1c1c;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    color: #1f3556;
+  }
+
+  a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(70, 116, 185, 0.45);
+  }
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f5f6f8; }
+::-webkit-scrollbar-thumb { background: #c9ced6; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #4674b9; }
+
+.glow-blue, .glow-emerald { box-shadow: 0 4px 14px rgba(20, 30, 50, 0.1); }
+
+.glass-panel {
+  background: #ffffff;
+  border: 1px solid #ececec;
+  box-shadow: 0 1px 2px rgba(20, 30, 50, 0.06);
 }
